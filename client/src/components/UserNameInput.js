@@ -1,6 +1,3 @@
-import { Button } from "@mui/material";
-import styled from "@emotion/styled";
-
 const UserNameInput = ({ onSubmit }) => {
   const handleSubmit = () => {
     // フォームの値を処理する
@@ -11,9 +8,10 @@ const UserNameInput = ({ onSubmit }) => {
     <div>
       <h3>UserNameInput</h3>
       <input type="text" />
-      <Button onClick={handleSubmit} variant="contained">
+      <button onClick={handleSubmit} variant="contained">
         次へ
-      </Button>
+      </button>
+      <p>a</p>
     </div>
   );
 };

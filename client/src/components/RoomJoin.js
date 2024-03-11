@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
-import styled from "@emotion/styled";
 
 const RoomJoin = ({ onSubmit }) => {
   const [modalState, setModalState] = useState("");
@@ -18,14 +16,15 @@ const RoomJoin = ({ onSubmit }) => {
   return (
     <div id="room-join">
       <h3>RoomJoin</h3>
-      <Button onClick={() => handleclick("UserNameInput")}>戻る</Button>
+      <button onClick={() => handleclick("UserNameInput")}>戻る</button>
       <div id="room">
-        <Button onClick={() => handleclick("InRoom")} variant="contained">
+        <button onClick={() => handleclick("InRoom")} variant="contained">
           ルームを作成する
-        </Button>
-        <Button onClick={() => handleclick("UserNameInput")} variant="outlined">
+        </button>
+        <button onClick={() => handleclick("UserNameInput")} variant="outlined">
           ルームを参加する
-        </Button>
+        </button>
+        <p>a</p>
       </div>
     </div>
   );

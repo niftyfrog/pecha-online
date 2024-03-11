@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Phase1 from "./Phase1";
-import { Button } from "@mui/material";
-import styled from "@emotion/styled";
 import Phase2 from "./Phase2";
-
-/* ↓これ追加 */
-const TextButton = styled(Button)`
-  text-transform: none;
-`;
 
 const InGame = ({ onSubmit }) => {
   const [currentPhase, setCurrentPhase] = useState(1);
@@ -36,9 +29,10 @@ const InGame = ({ onSubmit }) => {
   return (
     <div className="in-game">
       <h3>InGame</h3>
-      <Button onClick={() => handleClick("UserNameInput")}>最初に戻る</Button>
+      <button onClick={() => handleClick("UserNameInput")}>最初に戻る</button>
       <div className="phase1">{currentPhase === 1 && <Phase1 onStart={handlePhaseTimer} />}</div>
       <div className="phase2">{currentPhase === 2 && <Phase2 />}</div>
+      <p>a</p>
     </div>
   );
 };

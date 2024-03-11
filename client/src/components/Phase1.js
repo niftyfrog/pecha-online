@@ -1,5 +1,3 @@
-import { Button } from "@mui/material";
-import styled from "@emotion/styled";
 import { useEffect } from "react";
 
 const Phase1 = ({ onStart }) => {
@@ -11,9 +9,10 @@ const Phase1 = ({ onStart }) => {
       <h3>Phase1</h3>
       <p>キャラクターカードを引いてください</p>
       <h2>Player1</h2>
-      <Button>カードを引く</Button>
+      <button>カードを引く</button>
       <h2>Player2</h2>
-      <Button>カードを引く</Button>
+      <button>カードを引く</button>
+      <p>a</p>
     </div>
   );
 };
