@@ -12,7 +12,6 @@ const Phase1 = ({ onStart }) => {
       <button>カードを引く</button>
       <h2>Player2</h2>
       <button>カードを引く</button>
-      <p>a</p>
     </div>
   );
 };

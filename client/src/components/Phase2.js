@@ -1,4 +1,9 @@
-const Phase2 = () => {
+import React, { useState, useEffect } from "react";
+
+const Phase2 = ({ onStart }) => {
+  useEffect(() => {
+    onStart();
+  }, []);
   return (
     <div className="phase2">
       <h3>Phase2</h3>
@@ -7,8 +12,6 @@ const Phase2 = () => {
       <button>カードを引く</button>
       <h2>Player2</h2>
       <button>カードを引く</button>
-
-      <p>タイマー</p>
     </div>
   );
 };

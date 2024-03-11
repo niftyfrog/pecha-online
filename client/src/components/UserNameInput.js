@@ -11,7 +11,6 @@ const UserNameInput = ({ onSubmit }) => {
       <button onClick={handleSubmit} variant="contained">
         次へ
       </button>
-      <p>a</p>
     </div>
   );
 };

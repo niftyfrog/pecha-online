@@ -24,7 +24,6 @@ const RoomJoin = ({ onSubmit }) => {
         <button onClick={() => handleclick("UserNameInput")} variant="outlined">
           ルームを参加する
         </button>
-        <p>a</p>
       </div>
     </div>
   );

@@ -25,7 +25,6 @@ const InRoom = ({ onSubmit }) => {
       <div className="joined">
         <h3>プレイヤー</h3>
         <h3>観戦者</h3>
-        <p>a</p>
       </div>
     </div>
   );
