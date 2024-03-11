@@ -10,13 +10,17 @@ function App() {
   const renderScene = () => {
     switch (gameState) {
       case "UserNameInput":
+        console.log(gameState);
         return <UserNameInput onSubmit={() => setGameState("RoomJoin")} />;
       case "RoomJoin":
+        console.log(gameState);
         return <RoomJoin onSubmit={(data) => setGameState(data)} />;
       case "InRoom":
+        console.log(gameState);
         return <InRoom onSubmit={(data) => setGameState(data)} />;
       case "InGame":
-        return <InGame />;
+        console.log(gameState);
+        return <InGame onSubmit={(data) => setGameState(data)} />;
       default:
         return null;
     }
