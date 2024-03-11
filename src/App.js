@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import UserNameInput from "./components/UserNameInput";
+import Header from "./components/Header";
+import RoomJoin from "./components/RoomJoin";
+import InRoom from "./components/InRoom";
+import InGame from "./components/InGame";
+import { useState } from "react";
 
 function App() {
+  const [gameState, setGameState] = useState("UserNameInput");
+  const renderScene = () => {
+    switch (gameState) {
+      case "UserNameInput":
+        return <UserNameInput onSubmit={() => setGameState("RoomJoin")} />;
+      case "RoomJoin":
+        return <RoomJoin onSubmit={(data) => setGameState(data)} />;
+      case "InRoom":
+        return <InRoom onSubmit={(data) => setGameState(data)} />;
+      case "InGame":
+        return <InGame />;
+      default:
+        return null;
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="header">
+        <Header />
+      </div>
+      <div className="content">{renderScene()}</div>
     </div>
   );
 }
