@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Phase3 = ({ onStart }) => {
+const Phase4 = ({ onStart }) => {
   useEffect(() => {
     onStart();
   }, []);
@@ -10,9 +10,9 @@ const Phase3 = ({ onStart }) => {
   };
 
   return (
-    <div className="phase3">
-      <h3>Phase3</h3>
-      <p>バトル開始</p>
+    <div className="phase4">
+      <h3>Phase4</h3>
+      <p>観戦者は勝敗を決めてください</p>
       <h2>Player1</h2>
       <p>カード名</p>
       <h2>Player2</h2>
@@ -22,4 +22,4 @@ const Phase3 = ({ onStart }) => {
   );
 };
 
-export default Phase3;
+export default Phase4;
