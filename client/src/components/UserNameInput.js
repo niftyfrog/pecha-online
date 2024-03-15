@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:4000");
+const socket = io("http://localhost:4000");
 
 const UserNameInput = ({ onSubmit }) => {
   const [UserName, setUserName] = useState("");
@@ -8,7 +8,7 @@ const UserNameInput = ({ onSubmit }) => {
     // フォームの値を処理する
     console.log(UserName);
     socket.emit("user_name", { userID: socket.id, username: UserName });
-    //onSubmit(); 状態を更新してコンポーネントを切り替える
+    onSubmit(); //状態を更新してコンポーネントを切り替える
   };
 
   return (
