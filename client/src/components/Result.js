@@ -15,7 +15,7 @@ const Result = ({ onSubmit }) => {
   return (
     <div className="result">
       <h1>Player1の勝ち</h1>
-      <button onClick={() => handleClick("InRoom")}>ルームに戻る</button>{" "}
+      <button onClick={() => handleClick("InRoom")}>ルームに戻る</button>
     </div>
   );
 };
