@@ -21,10 +21,21 @@ io.on("connection", (socket) => {
 
   socket.on("user_name", (data) => {
     loginUser[data.userID] = data.username;
-    console.log(data.username);
+    console.log(loginUser);
   });
-  socket.on("createRoom", () => {
-    const roomId = generateRoomID();
+  //   socket.on("createRoom", () => {
+  //     const roomId = generateRoomID();
+  //     rooms[roomId] = {
+  //       id: roomId,
+  //       players: [],
+  //       spectators: [],
+  //     };
+  //     socket.join(roomId);
+  //     socket.emit("roomCreated", roomId);
+  //   });
+
+  socket.on("joinRoom", (roomId) => {
+    const joinRoomId = roomId;
     rooms[roomId] = {
       id: roomId,
       players: [],
