@@ -1,8 +1,6 @@
-import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
-const socket = io.connect("http://localhost:4000");
 
-const RoomJoin = ({ onSubmit }) => {
+const RoomJoin = ({ socket, onSubmit }) => {
   const [modalState, setModalState] = useState("");
   const [joinRoomId, setJoinRoomId] = useState("");
 
@@ -24,7 +22,7 @@ const RoomJoin = ({ onSubmit }) => {
         socket.emit("createRoom");
         break;
       case "UserNameInput":
-        socket.emit("joinRoom");
+        socket.emit("joinRoom", joinRoomId);
         break;
       default:
         break;
@@ -34,6 +32,7 @@ const RoomJoin = ({ onSubmit }) => {
   return (
     <div id="room-join">
       <h3>RoomJoin</h3>
+      <h3>{`${socket.id}`}</h3>
       <button onClick={() => handleclick("UserNameInput")}>戻る</button>
       <div id="room">
         <button onClick={() => handleclick("InRoom")} variant="contained">

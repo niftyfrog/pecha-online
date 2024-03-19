@@ -11,6 +11,7 @@ const InGame = ({ onSubmit }) => {
   const [remainingTime, setRemainingTime] = useState(0);
 
   useEffect(() => {
+    //modalstateが変更されれば発火
     if (modalState) {
       onSubmit(modalState);
     }
@@ -59,19 +60,13 @@ const InGame = ({ onSubmit }) => {
       <h3>InGame</h3>
       <button onClick={() => handleClick("UserNameInput")}>最初に戻る</button>
       <div className="phase1">
-        {currentPhase === 1 && (
-          <Phase1 onStart={() => handlePhaseTimer(3, 2)} />
-        )}
+        {currentPhase === 1 && <Phase1 onStart={() => handlePhaseTimer(3, 2)} />}
       </div>
       <div className="phase2">
-        {currentPhase === 2 && (
-          <Phase2 onStart={() => handlePhaseTimer(3, 3)} />
-        )}
+        {currentPhase === 2 && <Phase2 onStart={() => handlePhaseTimer(3, 3)} />}
       </div>
       <div className="phase3">
-        {currentPhase === 3 && (
-          <Phase3 onStart={() => handlePhaseTimer(3, 4)} />
-        )}
+        {currentPhase === 3 && <Phase3 onStart={() => handlePhaseTimer(3, 4)} />}
       </div>
       <div className="phase4">
         {currentPhase === 4 && <Phase4 onStart={() => handlePhaseTimer(3)} />}

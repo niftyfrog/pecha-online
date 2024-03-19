@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-const InRoom = ({ onSubmit }) => {
+const InRoom = ({ socket, userInfo, onSubmit }) => {
   const [modalState, setModalState] = useState("");
+  const [userList, setUserList] = useState([]);
 
   useEffect(() => {
     if (modalState) {
       onSubmit(modalState);
     }
-  }, [modalState, onSubmit]);
+    socket.on("userList", (data) => {
+      setUserList(data);
+    });
+  }, [modalState, socket, onSubmit]);
 
   const handleclick = (state) => {
     setModalState(state);
@@ -16,7 +20,13 @@ const InRoom = ({ onSubmit }) => {
   return (
     <div className="in-room">
       <h3>InRoom</h3>
-      <button onClick={() => handleclick("RoomJoin")}>戻る</button>
+      <h3>{`ようこそ  ${userInfo.username}様`}</h3>
+      <ul>
+        {userList.map((user) => (
+          <li key={user.username}>{user.username}</li>
+        ))}
+      </ul>
+      <button onClick={() => handleclick("UserNameInput")}>戻る</button>
       <div className="join">
         <button>プレイヤーとして参加</button>
         <button>観戦者として参加</button>
