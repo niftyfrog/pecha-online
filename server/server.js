@@ -9,6 +9,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },
 });
+var room = {};
 var rooms = {};
 var Users = [];
 
@@ -28,9 +29,9 @@ io.on("connection", (socket) => {
     io.emit("userList", Users);
   });
 
-  //   socket.on("userInfoConfirm",(loginUser)=>{
-  //     socket.emit()
-  //   })
+  socket.on("game_room", (data) => {
+    room = { players: [data], spectators: [] };
+  });
 
   socket.on("disconnect", (reason) => {
     console.log(reason);

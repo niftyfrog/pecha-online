@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 const InRoom = ({ socket, userInfo, onSubmit }) => {
   const [modalState, setModalState] = useState("");
   const [userList, setUserList] = useState([]);
+  const [gameMode, setGameMode] = useState("");
+  const [roomState, setRoomState] = useState([]);
 
   useEffect(() => {
     if (modalState) {
@@ -11,10 +13,17 @@ const InRoom = ({ socket, userInfo, onSubmit }) => {
     socket.on("userList", (data) => {
       setUserList(data);
     });
-  }, [modalState, socket, onSubmit]);
+    socket.on("game_room", (data) => {
+      setRoomState(data);
+    });
+  }, [modalState, socket, gameMode, onSubmit]);
 
   const handleclick = (state) => {
     setModalState(state);
+  };
+
+  const GameModeState = (mode) => {
+    setGameMode(mode);
   };
 
   return (
@@ -26,15 +35,17 @@ const InRoom = ({ socket, userInfo, onSubmit }) => {
           <li key={user.username}>{user.username}</li>
         ))}
       </ul>
-      <button onClick={() => handleclick("UserNameInput")}>戻る</button>
       <div className="join">
-        <button>プレイヤーとして参加</button>
-        <button>観戦者として参加</button>
-        <button onClick={() => handleclick("InGame")}>ゲームを開始する</button>
+        <button onClick={() => GameModeState("Player")}>プレイヤーとして参加</button>
+        <button onClick={() => GameModeState("Spectators")}>観戦者として参加</button>
       </div>
       <div className="joined">
         <h3>プレイヤー</h3>
+        <ul></ul>
         <h3>観戦者</h3>
+      </div>
+      <div className="gamestart">
+        <button onClick={() => handleclick("InGame")}>ゲームスタート</button>
       </div>
     </div>
   );
