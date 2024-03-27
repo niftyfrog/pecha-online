@@ -24,7 +24,9 @@ function App() {
           <InRoom userInfo={userInfo} socket={socket} onSubmit={(data) => setGameState(data)} />
         );
       case "InGame":
-        return <InGame onSubmit={(data) => setGameState(data)} />;
+        return (
+          <InGame userInfo={userInfo} socket={socket} onSubmit={(data) => setGameState(data)} />
+        );
       default:
         return null;
     }
